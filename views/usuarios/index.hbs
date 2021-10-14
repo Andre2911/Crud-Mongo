@@ -1,0 +1,30 @@
+<a href="/usuario/add" class="btn btn-dark float-right mr-4">Nuevo Usuario</a>
+<br></br>
+<div class="row ml-2 mr-2 mt-3">
+  
+  {{#each usuarios}}
+  
+  <div class="col-md-2">
+    <div class="card mb-3 shadow p-3 mb-5 bg-white rounded">
+      <div class="card-body text-center">
+
+        <p>{{ nombre }} </p>
+        <p>{{ correo }} </p>
+        <p>{{ rol }} </p>
+
+        <div>
+          <form action="/usuario/delete/{{_id}}?_method=DELETE" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-danger btn-sm float-right">Eliminar</button>
+          </form>
+          <form action="/usuario/edit/{{_id}}">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-primary btn-sm float-left">Editar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {{/each}}
+</div>

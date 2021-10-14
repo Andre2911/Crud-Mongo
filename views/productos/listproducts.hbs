@@ -1,0 +1,31 @@
+<a href="/productos/add" class="btn btn-dark float-right mr-4">Crear Producto</a>
+<br></br>
+<div class="row ml-2 mr-2 mt-3">
+  
+  {{#each productos}}
+  
+  <div class="col-md-2">
+    <div class="card mb-3 shadow p-3 mb-5 bg-white rounded">
+      <div class="card-body">
+        <h2><b>{{ nombre }}</b> </h2>
+        <p>{{ descripcion }} </p>
+        <p><b>Precio: </b>{{ precio }} </p>
+        
+        <p><b>Usuario:  </b>{{ producto_usuario.nombre }} </p>
+        <p><b>Categoria:</b> {{categoria_usuario.nombre}}</p>
+        <div>
+        <form action="/productos/delete/{{_id}}?_method=DELETE" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-danger btn-sm float-right">Eliminar</button>
+        </form>
+        <form action="/productos/edit/{{_id}}">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-primary btn-sm float-left">Editar</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {{/each}}
+</div>
